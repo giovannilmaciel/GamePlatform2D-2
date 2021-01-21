@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 newMovement;
+    private PlayerAnimation playerAnimation;
 
     private bool facingRight = true;
     private bool jump = false;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerAnimation = GetComponent<PlayerAnimation>();
     }
     
     private void Start()
@@ -35,10 +37,14 @@ public class PlayerController : MonoBehaviour
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
 
+        playerAnimation.SetOnGround(grounded);
+
         if(grounded)
         {
             doubleJump = false;
         }
+
+        Debug.Log(rb.velocity.y);
     }
 
     private void FixedUpdate()
@@ -56,6 +62,8 @@ public class PlayerController : MonoBehaviour
                 doubleJump = true;
             }
         }
+
+        playerAnimation.SetVSpeed(rb.velocity.y);
     }
 
     public void Jump()
@@ -70,6 +78,8 @@ public class PlayerController : MonoBehaviour
     {
         float currentSpeed = walkSpeed;
         newMovement = new Vector2(direction * currentSpeed, rb.velocity.y);
+
+        playerAnimation.SetSpeed((int)Mathf.Abs(direction));
 
         if(facingRight && direction < 0)
         {
