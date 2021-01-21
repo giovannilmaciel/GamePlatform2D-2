@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool jump = false;
     private bool grounded;
     private bool doubleJump;
+    private bool canControl = true;
 
     private void Awake()
     {
@@ -44,11 +45,15 @@ public class PlayerController : MonoBehaviour
             doubleJump = false;
         }
 
-        Debug.Log(rb.velocity.y);
     }
 
     private void FixedUpdate()
     {
+        if(!canControl)
+        {
+            return;
+        }
+
         rb.velocity = newMovement;
 
         if(jump)
@@ -96,5 +101,20 @@ public class PlayerController : MonoBehaviour
         facingRight = !facingRight;
 
         transform.Rotate(0, 180, 0);
+    }
+
+    public void DisableControls()
+    {
+        canControl = false;
+    }
+
+    public void EnableControls()
+    {
+        canControl = true;
+    }
+
+    public bool GetGrounded()
+    {
+        return grounded;
     }
 }

@@ -25,4 +25,9 @@ public class PlayerAnimation : MonoBehaviour
     {
         anim.SetBool("OnGround", state);
     }
+
+    public void SetCrouch(bool state)
+    {
+        anim.SetBool("Crouch", state);
+    }
 }
