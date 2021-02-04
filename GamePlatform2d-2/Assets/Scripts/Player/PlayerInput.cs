@@ -7,12 +7,14 @@ public class PlayerInput : MonoBehaviour
     public PlayerController playerController;
 
     private PlayerAnimation playerAnimation;
+    private PlayerAttack playerAttack;
 
     private bool crouched;
 
     private void Awake()
     {
         playerAnimation = GetComponent<PlayerAnimation>();
+        playerAttack = GetComponent<PlayerAttack>();
     }
 
     // Start is called before the first frame update
@@ -36,6 +38,11 @@ public class PlayerInput : MonoBehaviour
             {
                 playerController.PassThroughPlatform();
             }
+        }
+
+        if(Input.GetButtonDown("Fire2"))
+        {
+            playerAttack.MelleAttack();
         }
 
         if(Input.GetAxisRaw("Vertical") < 0)
