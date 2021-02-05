@@ -10,6 +10,12 @@ public class PlayerAttack : MonoBehaviour
 
     public float attackRate = 0.5f;
 
+    public Rigidbody2D bulletPrefab;
+    public Transform shotSpawn;
+    public float fireRate = 0.2f;
+    public float shotImpulse = 10;
+    private float nextFire;
+
     private bool canAttack = true;
 
     private PlayerAnimation playerAnimation;
@@ -19,6 +25,16 @@ public class PlayerAttack : MonoBehaviour
     {
         playerAnimation = GetComponent<PlayerAnimation>();
         playerController = GetComponent<PlayerController>();
+    }
+
+    public void Fire()
+    {
+        if(Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Rigidbody2D newBullet = Instantiate(bulletPrefab, shotSpawn.position, shotSpawn.rotation);
+            newBullet.AddForce(transform.right * shotImpulse, ForceMode2D.Impulse);
+        }
     }
 
     public void MelleAttack()

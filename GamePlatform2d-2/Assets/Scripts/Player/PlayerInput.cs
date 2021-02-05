@@ -40,6 +40,11 @@ public class PlayerInput : MonoBehaviour
             }
         }
 
+        if(Input.GetButtonDown("Fire1"))
+        {
+            playerAttack.Fire();
+        }
+
         if(Input.GetButtonDown("Fire2"))
         {
             playerAttack.MelleAttack();
