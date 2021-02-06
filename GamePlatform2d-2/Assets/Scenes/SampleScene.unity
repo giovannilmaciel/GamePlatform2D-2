@@ -1012,6 +1012,7 @@ GameObject:
   - component: {fileID: 985517518}
   - component: {fileID: 985517519}
   - component: {fileID: 985517520}
+  - component: {fileID: 985517521}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -1260,6 +1261,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skills: 
+--- !u!114 &985517521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985517510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e4984c41d05a64d81270d00186cc24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  ReleaseDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  maxHealth: 5
+  invincibleTime: 1
 --- !u!1 &1019754410
 GameObject:
   m_ObjectHideFlags: 0

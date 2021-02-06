@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 905918179540543595}
   - component: {fileID: 905918179540543592}
   - component: {fileID: 905918179540543591}
+  - component: {fileID: 7917500103576962094}
   m_Layer: 0
   m_Name: Chomper
   m_TagString: Untagged
@@ -283,3 +284,26 @@ MonoBehaviour:
   flipTime: 0
   attackRate: 2
   attackDistance: 2
+--- !u!114 &7917500103576962094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905918179540543593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e4984c41d05a64d81270d00186cc24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  ReleaseDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  maxHealth: 3
+  invincibleTime: 0
