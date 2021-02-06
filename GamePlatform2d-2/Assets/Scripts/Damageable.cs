@@ -16,10 +16,20 @@ public class Damageable : MonoBehaviour
     private bool invincible;
     private bool isDead;
 
+    public Color damageColor;
+    private SpriteRenderer spriteRenderer;
+    private Color startColor;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        startColor = spriteRenderer.color;
     }
 
     // Update is called once per frame
@@ -50,5 +60,26 @@ public class Damageable : MonoBehaviour
     void SetInvincible()
     {
         invincible = false;
+    }
+
+    public void StartDamageSprite()
+    {
+        StartCoroutine(DamageSprite());
+    }
+
+    IEnumerator DamageSprite()
+    {
+        float timer = 0;
+        while (timer < invincibleTime)
+        {
+            spriteRenderer.color = damageColor;
+            yield return new WaitForSeconds(0.1f);
+            timer += 0.1f;
+            spriteRenderer.color = startColor;
+            yield return new WaitForSeconds(0.1f);
+            timer += 0.1f;
+        }
+
+        spriteRenderer.color = startColor;
     }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 227924897831830379}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Shot Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,8 @@ GameObject:
   - component: {fileID: 227924898483086242}
   - component: {fileID: 3343606391800748588}
   - component: {fileID: 6737964317893334808}
-  m_Layer: 0
+  - component: {fileID: 183000575}
+  m_Layer: 11
   m_Name: Spitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +193,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6737964317893334808}
+        m_MethodName: StartDamageSprite
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   ReleaseDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -200,4 +212,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   maxHealth: 2
-  invincibleTime: 0
+  invincibleTime: 0.1
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &183000575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227924898483086241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8f6d82d3fe2c64ea614925658374de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 1
