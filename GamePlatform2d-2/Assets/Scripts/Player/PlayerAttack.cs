@@ -29,6 +29,11 @@ public class PlayerAttack : MonoBehaviour
 
     public void Fire()
     {
+        if(!PlayerSkills.instance.skills.Contains(Skills.Gun))
+        {
+            return;
+        }
+
         if(Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
@@ -39,6 +44,11 @@ public class PlayerAttack : MonoBehaviour
 
     public void MelleAttack()
     {
+        if (!PlayerSkills.instance.skills.Contains(Skills.Melee))
+        {
+            return;
+        }
+
         if(canAttack)
         {
             canAttack = false;

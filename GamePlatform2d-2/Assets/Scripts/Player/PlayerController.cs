@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        if(grounded || !doubleJump)
+        if(grounded || (!doubleJump && PlayerSkills.instance.skills.Contains(Skills.DoubleJump)))
         {
             jump = true;
         }
