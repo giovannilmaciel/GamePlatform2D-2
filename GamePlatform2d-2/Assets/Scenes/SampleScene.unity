@@ -363,6 +363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 254388636}
+  - component: {fileID: 254388637}
   m_Layer: 10
   m_Name: Camera Target
   m_TagString: Untagged
@@ -384,6 +385,19 @@ Transform:
   m_Father: {fileID: 985517512}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &254388637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254388635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf0e6825cb8f5448b8ddd18958717da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frameFreezeTime: 0.1
 --- !u!1 &428237894
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +540,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8878207, y: -0.14202464, z: -10}
+  m_LocalPosition: {x: 21.420513, y: -0.14955163, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -718,6 +732,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905918179540543591, guid: 55dc24334ac99484b9fc34ffc2258eb0,
+        type: 3}
+      propertyPath: flipByTime
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 905918179540543593, guid: 55dc24334ac99484b9fc34ffc2258eb0,
         type: 3}
@@ -955,7 +974,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945029797}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.6399999, y: -1.55, z: -10}
+  m_LocalPosition: {x: 21.42, y: -1.55, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 925897269}
@@ -1063,7 +1082,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985517510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.14, y: -3.05, z: 0}
+  m_LocalPosition: {x: 19.92, y: -3.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1263111919}
@@ -1245,7 +1264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a97d93bde2969e4392b7bb1c9f3171b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skills: 
+  skills: 01000000
 --- !u!114 &985517521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1272,15 +1291,83 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 985517514}
+        m_MethodName: DisableControls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 985517515}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 985517521}
+        m_MethodName: DamageImpact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 985517518}
+        m_MethodName: SetDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   ReleaseDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 985517515}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 985517514}
+        m_MethodName: EnableControls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
   maxHealth: 5
   invincibleTime: 1
   damageColor: {r: 0, g: 0, b: 0, a: 0}
+  noControlTime: 0.1
+  impactForce: {x: 10, y: 5}
 --- !u!1 &1019754410
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,6 +1583,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
+  powerValue: 100
+  duration: 0.5
 --- !u!1 &1522230521
 GameObject:
   m_ObjectHideFlags: 0
