@@ -11,7 +11,7 @@ public class Damager : MonoBehaviour
         Damageable damageable = other.GetComponent<Damageable>();
         if(damageable != null)
         {
-            damageable.TakeDamage(power);
+            damageable.TakeDamage(power, transform.position.x);
         }
     }
 }

@@ -35,4 +35,9 @@ public class PlayerAnimation : MonoBehaviour
     {
         anim.SetTrigger("Attack"); 
     }
+
+    public void SetDamage()
+    {
+        anim.SetTrigger("Damage");
+    }
 }
