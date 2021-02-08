@@ -56,6 +56,11 @@ public class Damageable : MonoBehaviour
         Invoke("GainControl", noControlTime);
         currentHealth -= damageAmount;
 
+        if(gameObject.CompareTag("Player"))
+        {
+            UIManager.instance.SetLives(currentHealth);
+        }
+
         if(currentHealth <= 0)
         {
             isDead = true;
