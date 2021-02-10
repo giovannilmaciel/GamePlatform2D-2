@@ -10,10 +10,16 @@ public class Checkpoint : MonoBehaviour
     private bool isActive;
 
     private SpriteRenderer spriteRenderer;
+    private CheckpointController checkpointController;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        checkpointController = FindObjectOfType<CheckpointController>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -25,8 +31,10 @@ public class Checkpoint : MonoBehaviour
 
         if(other.CompareTag("Player"))
         {
+            checkpointController.SetPos(transform.position);
             spriteRenderer.sprite = checkPointLighted;
             lights.SetActive(true);
+            isActive = true;
         }
     }
 }

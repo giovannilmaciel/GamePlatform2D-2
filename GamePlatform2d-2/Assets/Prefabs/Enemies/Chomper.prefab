@@ -93,6 +93,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
+  powerValue: 50
+  duration: 0.5
 --- !u!1 &905918178576237126
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +298,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
-  flipByTime: 0
+  flipByTime: 1
   flipTime: 2
   attackRate: 2
   attackDistance: 2
@@ -335,6 +337,8 @@ MonoBehaviour:
   maxHealth: 3
   invincibleTime: 0.1
   damageColor: {r: 1, g: 0, b: 0, a: 1}
+  noControlTime: 0.25
+  impactForce: {x: 0, y: 0}
 --- !u!58 &6204866811407695572
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -364,3 +368,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
+  powerValue: 50
+  duration: 0.5
